@@ -8,6 +8,7 @@ local print = print
 local tostring = tostring
 
 local io_lines = io.lines
+local os_clock = os.clock
 local tbl_insert = table.insert
 local tbl_concat = table.concat
 
@@ -274,6 +275,12 @@ function lines(filename, f)
   return function()
     return f(iter())
   end
+end
+
+function time(f, ...)
+  local start = os_clock()
+  local r = f(...)
+  return 'result', r, 'time', os_clock() - start
 end
 
 return M
