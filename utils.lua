@@ -283,4 +283,22 @@ function time(f, ...)
   return 'result', r, 'time', os_clock() - start
 end
 
+local function unique(s, f)
+  f = f or function(x) return x end
+  local r = {}
+  for x in s:gmatch('.') do
+    r[f(x)] = true
+  end
+  return r
+end
+
+local function unique(s, f)
+  f = f or function(x) return x end
+  local r = {}
+  for x in s:gmatch('.') do
+    r[f(x)] = true
+  end
+  return r
+end
+
 return M
