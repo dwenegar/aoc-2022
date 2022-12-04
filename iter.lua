@@ -42,4 +42,14 @@ function map(iter, f)
   end
 end
 
+function filter(iter, p)
+  return function()
+    while true do
+      local x = iter()
+      if not x then return end
+      if p(x) then return x end
+    end
+  end
+end
+
 return M
