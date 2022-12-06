@@ -12,7 +12,7 @@ end
 local function calculate_result_1()
   local function find_item_in_both_compartments(items)
     local seen = {}
-    for i, c in stringx.ichars(items) do
+    for i, c in stringx.chars_iter(items) do
       if i <= #items // 2 then
         seen[c] = true
       elseif seen[c] then
@@ -33,7 +33,7 @@ local function calculate_result_2()
   local function find_badge_item(group)
     local t = {}
     for i, items in ipairs(group) do
-      for item in stringx.distinct(items) do
+      for item in stringx.distinct_iter(items) do
         t[item] = (t[item] or 0) + 1
         if i == 3 and t[item] == 3 then
           return item
