@@ -94,7 +94,7 @@ function dump(t, opts)
   local refs, ref_positions = {}, {}
   local function add_ref(x)
     if not refs[x] then
-      refs[x] = '<>'
+      refs[x] = tostring(x)
     end
   end
 
